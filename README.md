@@ -13,7 +13,7 @@ B ----> C(Machine Learning Architecture)
 
 ## Content 
 
-The course content is divided into modules, containing their respective practical work and challenges:
+The Python Development course content is divided into modules, containing their respective practical works and challenges:
 
 - **Module 1** - Libraries for Data Analysis
 - **Module 2** - Python for web application
