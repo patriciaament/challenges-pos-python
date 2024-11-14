@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equation Project</title>
+    <title>Form Porject</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="w-50 p-4 shadow-lg rounded bg-light">
+            <h2 class="text-center">Projeto Cálculo Equação de Segundo Grau</h2>
+            <p class="text-center">Digite os coeficientes da equação</p>
+            <form method="POST" action="{% url 'index' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary btn-block">Calcular</button>
+            </form>
+            {% if resultado %}
+            <div class="alert alert-success mt-4">
+                <p>As raízes da equação são:</p>
+                <p>x1 = {{ resultado.0 }}</p>
+                <p>x2 = {{ resultado.1 }}</p>
+            </div>
+            {% elif erro %}
+            <div class="alert alert-danger mt-4">
+                {{ erro }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .errorlist {
+            display: none;
+        }
+    </style>
 </body>
 </html>
